@@ -10,4 +10,17 @@ export class DOM_Manipulator {
         headerDiv.appendChild(paragraphTag);
         contentDiv.appendChild(headerDiv);
     }
+
+    static generateDirectoryOfProjects(arrayOfProjects){
+        const contentDiv = document.querySelector("#content");
+        const projectsDiv = document.createElement("div");
+
+        for(const project of arrayOfProjects){
+            const buttonElement = document.createElement("button");
+            buttonElement.textContent = project.nameOfProject;
+            projectsDiv.appendChild(buttonElement);
+        }
+
+        contentDiv.appendChild(projectsDiv);
+    }
 }
