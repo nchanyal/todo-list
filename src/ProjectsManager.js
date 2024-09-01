@@ -13,6 +13,10 @@ export class ProjectsManager {
         this.#listOfProjects.splice(indexOfProjectObject, 1);
     }
 
+    getProject(indexOfProjectObject){
+        return this.#listOfProjects[indexOfProjectObject];
+    }
+
     get listOfProjects(){
         return this.#listOfProjects;
     }
