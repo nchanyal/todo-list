@@ -2,12 +2,12 @@ export class DOM_Manipulator {
     static generateHeader(){
         const contentDiv = document.querySelector("#content");
         const headerDiv = document.createElement("div");
-        const paragraphTag = document.createElement("p");
+        const headerParagraph = document.createElement("p");
 
         headerDiv.setAttribute("id", "header");
-        paragraphTag.textContent = "Todo List";
+        headerParagraph.textContent = "Todo List";
 
-        headerDiv.appendChild(paragraphTag);
+        headerDiv.appendChild(headerParagraph);
         contentDiv.appendChild(headerDiv);
     }
 
@@ -17,9 +17,16 @@ export class DOM_Manipulator {
         projectsDiv.setAttribute("id", "project-list");
 
         for(const project of arrayOfProjects){
-            const buttonElement = document.createElement("button");
-            buttonElement.textContent = project.nameOfProject;
-            projectsDiv.appendChild(buttonElement);
+            const projectDiv = document.createElement("div");
+            const projectNameButton = document.createElement("button");
+            const deleteButton = document.createElement("button");
+
+            projectNameButton.textContent = project.nameOfProject;
+            deleteButton.textContent = "X";
+
+            projectDiv.appendChild(projectNameButton);
+            projectDiv.appendChild(deleteButton);
+            projectsDiv.appendChild(projectDiv);
         }
 
         contentDiv.appendChild(projectsDiv);
