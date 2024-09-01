@@ -70,4 +70,10 @@ export class DOM_Manipulator {
 
         contentDiv.appendChild(todosDiv);
     }
+
+    static generateInitialWebpage(arrayOfProjects, arrayOfTodos){
+        DOM_Manipulator.generateHeader();
+        DOM_Manipulator.generateDirectoryOfProjects(arrayOfProjects);
+        DOM_Manipulator.generateDirectoryOfTodos(arrayOfTodos);        
+    }
 }
