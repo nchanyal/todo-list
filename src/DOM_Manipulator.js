@@ -11,10 +11,21 @@ export class DOM_Manipulator {
         contentDiv.appendChild(headerDiv);
     }
 
-    static generateDirectoryOfProjects(arrayOfProjects){
+    static generateProjectNavigation(arrayOfProjects){
         const contentDiv = document.querySelector("#content");
-        const projectsDiv = document.createElement("div");
-        projectsDiv.setAttribute("id", "project-list");
+        const addProjectButton = document.createElement("button");
+        const projectNavTitle = document.createElement("p");
+        const topContainer = document.createElement("div");
+        const projectNavigationDiv = document.createElement("div");
+        
+        addProjectButton.textContent = "New Project";
+        projectNavTitle.textContent = "Projects:";
+
+        topContainer.setAttribute("id", "top-container");
+        addProjectButton.setAttribute("id", "new-project-button");
+        projectNavigationDiv.setAttribute("id", "project-nav");
+
+        topContainer.appendChild(projectNavTitle);
 
         for(const project of arrayOfProjects){
             const projectDiv = document.createElement("div");
@@ -26,10 +37,12 @@ export class DOM_Manipulator {
 
             projectDiv.appendChild(projectNameButton);
             projectDiv.appendChild(deleteButton);
-            projectsDiv.appendChild(projectDiv);
+            topContainer.appendChild(projectDiv);
         }
 
-        contentDiv.appendChild(projectsDiv);
+        projectNavigationDiv.appendChild(topContainer);
+        projectNavigationDiv.appendChild(addProjectButton);
+        contentDiv.appendChild(projectNavigationDiv);
     }
 
     static generateDirectoryOfTodos(arrayOfTodos){
@@ -80,7 +93,7 @@ export class DOM_Manipulator {
 
     static generateInitialWebpage(arrayOfProjects, arrayOfTodos){
         DOM_Manipulator.generateHeader();
-        DOM_Manipulator.generateDirectoryOfProjects(arrayOfProjects);
+        DOM_Manipulator.generateProjectNavigation(arrayOfProjects);
         DOM_Manipulator.generateDirectoryOfTodos(arrayOfTodos);        
     }
 }
