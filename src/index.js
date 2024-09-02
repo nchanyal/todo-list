@@ -14,4 +14,4 @@ PM.addProject(project);
 PM.addProject(new Project("shopping-list"));
 
 
-DOM_Manipulator.generateInitialWebpage(PM.listOfProjects, PM.getProject(0).listOfTodos);
+DOM_Manipulator.generateInitialWebpage(PM.listOfProjects, PM.getProject(0).nameOfProject, PM.getProject(0).listOfTodos);

@@ -18,7 +18,7 @@ export class DOM_Manipulator {
         const topContainer = document.createElement("div");
         const projectNavigationDiv = document.createElement("div");
         
-        addProjectButton.textContent = "New Project";
+        addProjectButton.textContent = "Add Project";
         projectNavTitle.textContent = "Projects:";
 
         topContainer.setAttribute("id", "top-container");
@@ -45,9 +45,21 @@ export class DOM_Manipulator {
         contentDiv.appendChild(projectNavigationDiv);
     }
 
-    static generateDirectoryOfTodos(arrayOfTodos){
+    static generateDirectoryOfTodos(projectName, arrayOfTodos){
         const contentDiv = document.querySelector("#content");
         const todosDiv = document.createElement("div");
+        const todoListHeader = document.createElement("div");
+        const projectNameHeader = document.createElement("h1");
+        const addTodoButton = document.createElement("button");
+
+        projectNameHeader.textContent = projectName;
+        addTodoButton.textContent = "Add Todo";
+
+        todoListHeader.appendChild(projectNameHeader);
+        todoListHeader.appendChild(addTodoButton);
+        todosDiv.appendChild(todoListHeader);
+
+        todoListHeader.setAttribute('id', "todo-list-header");
         todosDiv.setAttribute("id", "todo-list");
 
         for(let i = 0; i < arrayOfTodos.length; i++){
@@ -91,9 +103,9 @@ export class DOM_Manipulator {
         contentDiv.appendChild(todosDiv);
     }
 
-    static generateInitialWebpage(arrayOfProjects, arrayOfTodos){
+    static generateInitialWebpage(arrayOfProjects, projectName, arrayOfTodos){
         DOM_Manipulator.generateHeader();
         DOM_Manipulator.generateProjectNavigation(arrayOfProjects);
-        DOM_Manipulator.generateDirectoryOfTodos(arrayOfTodos);        
+        DOM_Manipulator.generateDirectoryOfTodos(projectName, arrayOfTodos);        
     }
 }
