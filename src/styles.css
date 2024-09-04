@@ -3,6 +3,7 @@
 
 :root {
     --header-bg-color: #1e3a8a;
+    --light-gray-bg-color: #eee;
     --button-hover-color: #e7e7e7;
     --button-active-color: #c9c9c9;
 }
@@ -37,7 +38,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #eee;
+    background-color: var(--light-gray-bg-color);
     border-right: 1px solid gray;
 }
 
@@ -54,7 +55,8 @@ body {
 }
 
 #top-container > div > button,
-#new-project-button {
+#new-project-button,
+#todo-list-header > button {
     font-size: 14px;
     font-family: "Roboto";
     text-align: left;
@@ -63,12 +65,14 @@ body {
 }
 
 #top-container > div > button:hover,
-#new-project-button:hover {
+#new-project-button:hover,
+#todo-list-header > button:hover {
     background-color: var(--button-hover-color);
 }
 
 #top-container > div > button:active,
-#new-project-button:active {
+#new-project-button:active,
+#todo-list-header > button:active {
     background-color: var(--button-active-color);
 }
 
@@ -78,14 +82,71 @@ body {
 }
 
 #new-project-button {
+    margin: 0 auto 20px;
+}
+
+#new-project-button,
+#todo-list-header > button {
     width: 105px;
     height: 33px;
     border: 1px solid black;
     border-radius: 5px;
-    margin: 0 auto 20px;
     text-align: center;
 }
 
 #todo-list {
     grid-column: 2;
+}
+
+#todo-wrapper {
+    margin: 0 15px;
+}
+
+#todo-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#todo-list-header > h1 {
+    font-family: "Roboto";
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--light-gray-bg-color);
+    margin-bottom: 15px;
+}
+
+.left-container {
+    display: flex;
+}
+
+.left-container > p {
+    font-family: "Roboto";
+    margin-left: 10px;
+}
+
+.left-container > input[type="checkbox"] {
+    margin-left: 10px;
+}
+
+.right-container {
+    display: flex;
+    align-items: center;
+}
+
+.right-container > p {
+    font-family: "Roboto";
+}
+
+.right-container > button {
+    font-family: "Roboto";
+    margin-left: 20px;
+    height: 30px;
+}
+
+.right-container > button:last-of-type {
+    margin-right: 10px;
 }

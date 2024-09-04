@@ -48,6 +48,7 @@ export class DOM_Manipulator {
     static generateDirectoryOfTodos(projectName, arrayOfTodos){
         const contentDiv = document.querySelector("#content");
         const todosDiv = document.createElement("div");
+        const wrapperDiv = document.createElement("div");
         const todoListHeader = document.createElement("div");
         const projectNameHeader = document.createElement("h1");
         const addTodoButton = document.createElement("button");
@@ -57,8 +58,10 @@ export class DOM_Manipulator {
 
         todoListHeader.appendChild(projectNameHeader);
         todoListHeader.appendChild(addTodoButton);
-        todosDiv.appendChild(todoListHeader);
+        wrapperDiv.appendChild(todoListHeader);
+        todosDiv.appendChild(wrapperDiv);
 
+        wrapperDiv.setAttribute("id", "todo-wrapper");
         todoListHeader.setAttribute('id', "todo-list-header");
         todosDiv.setAttribute("id", "todo-list");
 
@@ -75,12 +78,13 @@ export class DOM_Manipulator {
             const deleteButton = document.createElement("button");
         
             todoDiv.dataset.row = i;
-            leftContainer.setAttribute("id", "left-container");
-            rightContainer.setAttribute("id", "right-container");
+            todoDiv.setAttribute("class", "todo-item");
+            leftContainer.setAttribute("class", "left-container");
+            rightContainer.setAttribute("class", "right-container");
             checkbox.setAttribute("type", "checkbox");
-            detailsButton.setAttribute("id", "details");
-            editButton.setAttribute("id", "edit");
-            deleteButton.setAttribute("id", "delete");
+            detailsButton.setAttribute("class", "details");
+            editButton.setAttribute("class", "edit");
+            deleteButton.setAttribute("class", "delete");
 
             todoTitleParagraph.textContent = todo.title;
             todoDueDateParagraph.textContent = todo.dueDate;
@@ -97,7 +101,7 @@ export class DOM_Manipulator {
             rightContainer.appendChild(deleteButton);
             todoDiv.appendChild(leftContainer);
             todoDiv.appendChild(rightContainer);
-            todosDiv.appendChild(todoDiv);
+            wrapperDiv.appendChild(todoDiv);
         }
 
         contentDiv.appendChild(todosDiv);
