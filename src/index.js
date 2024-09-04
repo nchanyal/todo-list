@@ -1,7 +1,7 @@
-import { DOM_Manipulator } from "./DOM_Manipulator";
-import {ProjectsManager} from "./ProjectsManager";
-import { Project } from "./Project";
-import {Todo} from "./Todo";
+import { DOM_Manipulator } from "./components/DOM_Manipulator";
+import {ProjectsManager} from "./components/ProjectsManager";
+import { Project } from "./components/Project";
+import {Todo} from "./components/Todo";
 import "./styles.css";
 
 
