@@ -35,6 +35,8 @@ body {
 }
 
 #project-nav {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

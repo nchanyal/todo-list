@@ -16,14 +16,20 @@ export class DOM_Manipulator {
         const addProjectButton = document.createElement("button");
         const projectNavTitle = document.createElement("p");
         const topContainer = document.createElement("div");
-        const projectNavigationDiv = document.createElement("div");
+        let projectNavigationDiv = document.querySelector("#project-nav");
+
+        if(projectNavigationDiv === null){
+            projectNavigationDiv = document.createElement("div");
+            projectNavigationDiv.setAttribute("id", "project-nav");
+        }else{
+            projectNavigationDiv.textContent = "";
+        }
         
         addProjectButton.textContent = "Add Project";
         projectNavTitle.textContent = "Projects:";
 
         topContainer.setAttribute("id", "top-container");
         addProjectButton.setAttribute("id", "new-project-button");
-        projectNavigationDiv.setAttribute("id", "project-nav");
 
         topContainer.appendChild(projectNavTitle);
 
