@@ -53,11 +53,18 @@ export class DOM_Manipulator {
 
     static generateDirectoryOfTodos(projectName, arrayOfTodos){
         const contentDiv = document.querySelector("#content");
-        const todosDiv = document.createElement("div");
+        let todoListDiv = document.querySelector("#todo-list");
         const wrapperDiv = document.createElement("div");
         const todoListHeader = document.createElement("div");
         const projectNameHeader = document.createElement("h1");
         const addTodoButton = document.createElement("button");
+
+        if(todoListDiv === null){
+            todoListDiv = document.createElement("div");
+            todoListDiv.setAttribute("id", "todo-list");
+        }else {
+            todoListDiv.textContent = "";
+        }
 
         projectNameHeader.textContent = projectName;
         addTodoButton.textContent = "Add Todo";
@@ -65,11 +72,10 @@ export class DOM_Manipulator {
         todoListHeader.appendChild(projectNameHeader);
         todoListHeader.appendChild(addTodoButton);
         wrapperDiv.appendChild(todoListHeader);
-        todosDiv.appendChild(wrapperDiv);
+        todoListDiv.appendChild(wrapperDiv);
 
         wrapperDiv.setAttribute("id", "todo-wrapper");
         todoListHeader.setAttribute('id', "todo-list-header");
-        todosDiv.setAttribute("id", "todo-list");
 
         for(let i = 0; i < arrayOfTodos.length; i++){
             const todo = arrayOfTodos[i];
@@ -110,7 +116,7 @@ export class DOM_Manipulator {
             wrapperDiv.appendChild(todoDiv);
         }
 
-        contentDiv.appendChild(todosDiv);
+        contentDiv.appendChild(todoListDiv);
     }
 
     static generateInitialWebpage(arrayOfProjects, projectName, arrayOfTodos){

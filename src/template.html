@@ -7,11 +7,46 @@
 <body>
     <div id="content">
         <dialog id="add-project-dialog">
-            <form action="" method="dialog">
+            <form action="#" method="dialog">
                 <label for="project_name">Project Name:</label>
                 <input type="text" id="project_name" name="project_name" required>
-                <button type="submit" id="submit-button">Submit</button>
                 <button type="button" id="close-button">Close</button>
+                <button type="submit" id="submit-button">Submit</button>
+            </form>
+        </dialog>
+        <dialog id="add-todo-dialog">
+            <form action="#" method="dialog">
+                <fieldset>
+                    <label for="todo_name">Todo Name:</label>
+                    <input required type="text" id="todo_name" name="todo_name">
+                </fieldset>
+                <fieldset>
+                    <label for="due_date">Due:</label>
+                    <input required type="date" id="due_date" name="due_date">
+                </fieldset>
+                <fieldset>
+                    <label for="todo_details">Details:</label>
+                    <textarea required id="todo_details" name="todo_details"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Priority:</legend>
+                    <ul>
+                        <li>
+                            <input required type="radio" id="high" name="priority" value="high">
+                            <label for="high">High</label>
+                        </li>
+                        <li>
+                            <input required type="radio" id="medium" name="priority" value="medium">
+                            <label for="medium">Medium</label>
+                        </li>
+                        <li>
+                            <input required type="radio" id="low" name="priority" value="low">
+                            <label for="low">Low</label>
+                        </li>
+                    </ul>
+                </fieldset>
+                <button type="button" id="todo-close-button">Close</button>
+                <button type="submit" id="todo-submit-button">Submit</button>
             </form>
         </dialog>
     </div>

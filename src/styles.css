@@ -19,6 +19,10 @@ body {
     height: 100vh;
 }
 
+#add-todo-dialog  fieldset:last-of-type > ul {
+    list-style-type: none;
+}
+
 #header {
     display: flex;
     align-items: center;
